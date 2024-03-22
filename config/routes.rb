@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'pages/admission'
   get 'pages/students'
   devise_for :users
+  resources :secondearies
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

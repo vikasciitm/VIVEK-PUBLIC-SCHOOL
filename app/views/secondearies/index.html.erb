@@ -1,0 +1,40 @@
+<h1 class="text-center text-danger m-3 card card-body">secondearys students.</h1>
+<%= link_to "New Student","/secondearies/new", class: "btn btn-lg btn-outline-primary m-3"%>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Number</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Address</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @secondearys.each do |s|%>
+    <tr>
+      <th scope="row"><%= s.id%></th>
+      <td><%= s.name%></td>
+      <td><%= s.email%></td>
+      <td><%= s.number%></td>
+      <td><%= s.dob%></td>
+      <td><%= s.add%></td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">View</a></li>
+            <li><a class="dropdown-item" href="/secondearies/<%=s.id%>/edit">Edit</a></li>
+            <li><a class="dropdown-item" href="#">Delete</a></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
