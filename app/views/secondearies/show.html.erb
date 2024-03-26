@@ -1,0 +1,86 @@
+<div class="container">
+	<h1>Student <%= @secondeary.name%>-(<%= @secondeary.id%>) Report</h1>
+	<div class="d-flex justify-content-around border p-3 m-3">
+		<div class="p-4 border">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Batch</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">2023-24</td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Name</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.name%></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Student Code</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.id%></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Category</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">obc</td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Fater's Name</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">Ram</td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Mother's Name</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">Sita</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="p-4 border">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">DOB</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.dob%><span class="text-dark">(dd/mm/yyyy)</span></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Sex</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">M</td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Student Cell No.</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.number%></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Father Cell No.</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.number%></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Telephone No.</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">(R)<%= @secondeary.number%></td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Reg. No.</th>
+						<td class="border border-2 border-info text-center bg-light text-danger">A/23/<%= @secondeary.id%></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th><%=@secondeary.name%></th>
+					</tr>
+					<tr>
+						<td>
+							<img src="/assets/pass/pass1.jpg" width="200px">
+						</td>
+					</tr>
+					<tr>
+						<th class="row text-light border-info border border-2 bg-secondary">Address</th>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.dob%></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<%= link_to "Back to Students","/secondearies", class: "btn btn-lg btn-outline-primary m-3"%>
+	<%= link_to "Edit student",edit_secondeary_path, class: "btn btn-lg btn-primary m-3"%>
+</div>
+

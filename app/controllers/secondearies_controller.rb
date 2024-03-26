@@ -25,6 +25,14 @@ class SecondeariesController < ApplicationController
 		end
 	end
 	def show
+		@secondeary=Secondeary.find(params[:id])
+	end
+
+	def destroy
+		@secondeary=Secondeary.find(params[:id])
+		if @secondeary.destroy
+			redirect_to secondearies_path, notice: 'Employee has been deleted successfully'
+		end
 	end
 
 	private

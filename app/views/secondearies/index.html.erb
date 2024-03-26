@@ -28,9 +28,9 @@
             Action
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">View</a></li>
+            <li><a class="dropdown-item" href="/secondearies/<%=s.id%>">View</a></li>
             <li><a class="dropdown-item" href="/secondearies/<%=s.id%>/edit">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
+            <li><%= link_to "Delete",secondeary_path(s),class: "dropdown-item",method: :delete, data: {confirm: "Are you sure to delete this employee?"}%></li>
           </ul>
         </div>
       </td>
