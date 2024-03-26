@@ -1,2 +1,103 @@
-<h1>Pages#contact_us</h1>
-<p>Find me in app/views/pages/contact_us.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Box</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .chat-container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .chat-header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        overflow-y: scroll;
+        max-height: 300px;
+    }
+
+    .message {
+        margin-bottom: 10px;
+    }
+
+    .message .sender {
+        font-weight: bold;
+    }
+
+    .message .message-content {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 8px 10px;
+        display: inline-block;
+    }
+
+    .chat-input {
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #ddd;
+    }
+
+    .chat-input input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .chat-input input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        Chat Box
+    </div>
+    <div class="chat-messages">
+        <div class="message">
+            <span class="sender">John:</span>
+            <span class="message-content">Hey, how's it going?</span>
+        </div>
+        <div class="message">
+            <span class="sender">Jane:</span>
+            <span class="message-content">Hi John, I'm good, thanks!</span>
+        </div>
+        <!-- More messages can be added here -->
+    </div>
+    <div class="chat-input">
+        <form id="message-form">
+            <input type="text" id="message" placeholder="Type your message...">
+            <input type="submit" class="m-2" value="Send">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
