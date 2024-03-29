@@ -1,6 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger m-3 rounded">
+<style type="text/css">
+  .colorchange{
+    background-size: cover;
+    background-position: center;
+    animation: animateBg 5s linear infinite;
+}
+
+@keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary m-3 rounded">
   <div class="container-fluid">
-    <a class="navbar-brand text-success" href="#">VIVEK PUBLIC SCHOOL</a>
+    <a class="navbar-brand text-danger colorchange" href="#"><b>VIVEK PUBLIC SCHOOL</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,15 +29,15 @@
           <a class="nav-link" href="/pages/contact_us">Contact Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pages/admission">Admission</a>
+          <a class="nav-link" href="/admissions">Admission</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/pages/students">Students</a>
         </li>
       </ul>
-      <%= link_to "Sign Up",new_user_registration_path ,class: "btn btn-outline-success m-1"%>
-      <%= link_to "Log In",new_user_session_path,class: "btn btn-outline-success m-1"%>
-      <%#= link_to "Sign Out",destroy_user_session_path,class: "btn btn-outline-danger m-1"%>
+      <%= link_to "Sign Up",new_user_registration_path ,class: "btn btn-outline-light m-1"%>
+      <%= link_to "Log In",new_user_session_path,class: "btn btn-outline-light m-1"%>
+      <%= button_to "Sign Out",destroy_user_session_path, method: :delete,class: "btn text-light btn-outline-danger m-1"%>
     </div>
   </div>
 </nav>

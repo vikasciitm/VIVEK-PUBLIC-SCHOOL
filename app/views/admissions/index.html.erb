@@ -1,0 +1,95 @@
+<div class="d-flex flex-row-reverse bd-highlight m-3">
+<button class="btn btn-outline-primary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">New Admission</button>
+</div>
+
+
+<section >
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Class</th>
+          <th>Address</th>
+          <th>Address 2</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Peen</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admissions.each do |data|%>
+        <tr>
+          <td><%= data.id%></td>
+          <td><%= data.name%></td>
+          <td><%= data.email%></td>
+          <td><%= data.klass%></td>
+          <td><%= data.address%></td>
+          <td><%= data.address2%></td>
+          <td><%= data.city%></td>
+          <td><%= data.state%></td>
+          <td><%= data.peen%></td>
+          <td>
+            <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><%= link_to "view",admission_path(data),class: "btn btn-warning m-1"%><%= link_to "edit",edit_admission_path(data),class: "btn btn-success m-1"%><%= button_to "delete",admission_path(data),method: :delete,turbo_confirm: "Are you sure?",class: "btn btn-danger m-1"%></li>
+            <li><%#= link_to "Destroy", secondeary_path(s), data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></li>
+          </ul>
+        </div>
+            
+            
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= form_with model: @admission do |f|%>
+      <div>
+        <%= f.label "first_name",class: "m-2"%>
+        <%= f.text_field "first_name",class: "form-control form-control-lg"%>
+      </div>
+      <div>
+        <%= f.label "last_name",class: "m-2"%>
+        <%= f.text_field "last_name",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "email",class: "m-2"%>
+        <%= f.text_field "email",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "class",class: "m-2"%>
+        <%= f.text_field "klass",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "address",class: "m-2"%>
+        <%= f.text_field "address",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "address2",class: "m-2"%>
+        <%= f.text_field "address2",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "city",class: "m-2"%>
+        <%= f.text_field "city",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "state",class: "m-2"%>
+        <%= f.text_field "state",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "peen",class: "m-2"%>
+        <%= f.text_field "peen",class: "form-control form-control-lg"%>
+      </div>
+      <%= f.submit class: "btn btn-primary m-2"%>
+    <%end%>
+  </div>
+  
+</div>
