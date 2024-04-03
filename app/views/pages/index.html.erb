@@ -13,8 +13,23 @@
 .section2 img{
 	width: 250px;
 }
+.new{
+    background-size: cover;
+    background-position: center;
+    animation: animateBg 1s linear infinite;
+}
+
+@keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+.section2 img{
+	width: 250px;
+}
 </style>
 <div class="text-center text-light bg-dark p-1">Welcome to</div>
+<marquee class="p-1 bg-warning">Admission Open For Session 2024-2025<sup class="new text-danger">New</sup> </marquee>
 <section class="border p-3 border-3 mb-2">
 	<div>
 		<h3 class="text-center">VIVEK PUBLIC SCHOOL</h3>
@@ -123,7 +138,11 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Submit</button>
+        	<% if user_signed_in?%>
+        	<button type="button" class="btn btn-primary">Submit</button>
+        	<%else%>
+          <%= link_to "Submit",new_user_session_path,class: "btn btn-primary"%>
+          <%end%>
         </div>
       </div>
     </div>

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'pages/contact_us'
   get 'pages/admission'
   get 'pages/students'
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
   resources :secondearies
   resources :admissions
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -5,52 +5,102 @@
 
 <section >
   <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Class</th>
-          <th>Address</th>
-          <th>Address 2</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Peen</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
+    
         <% @admissions.each do |data|%>
-        <tr>
-          <td><%= data.id%></td>
-          <td><%= data.name%></td>
-          <td><%= data.email%></td>
-          <td><%= data.klass%></td>
-          <td><%= data.address%></td>
-          <td><%= data.address2%></td>
-          <td><%= data.city%></td>
-          <td><%= data.state%></td>
-          <td><%= data.peen%></td>
-          <td>
-            <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Action
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%= link_to "view",admission_path(data),class: "btn btn-warning m-1"%><%= link_to "edit",edit_admission_path(data),class: "btn btn-success m-1"%><%= button_to "delete",admission_path(data),method: :delete,turbo_confirm: "Are you sure?",class: "btn btn-danger m-1"%></li>
-            <li><%#= link_to "Destroy", secondeary_path(s), data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></li>
-          </ul>
-        </div>
-            
-            
-          </td>
-        </tr>
-        <%end%>
-      </tbody>
-    </table>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-heading_<%= data.id%>">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_<%= data.id%>" aria-expanded="false" aria-controls="flush-collapse_<%= data.id%>">
+        <%= "#{data.name} #{data.email}"%>
+      </button>
+    </h2>
+    <div id="flush-collapse_<%= data.id%>" class="accordion-collapse collapse" aria-labelledby="flush-heading_<%= data.id%>" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="container">
+  <h1>Student <%= data.name%>-(<%= data.id%>) Report</h1>
+  <div class="d-flex justify-content-around border p-3 m-3">
+    <div class="p-4 border">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Batch</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">2023-24</td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Name</th>
+            <td class="border border-2 border-info text-center bg-light text-danger"><%= data.name%></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Student Code</th>
+            <td class="border border-2 border-info text-center bg-light text-danger"><%= data.id%></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Category</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">obc</td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Fater's Name</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">Ram</td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Mother's Name</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">Sita</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="p-4 border">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">city</th>
+            <td class="border border-2 border-info text-center bg-light text-danger"><%= data.city%><span class="text-dark">(dd/mm/yyyy)</span></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Sex</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">M</td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">State</th>
+            <td class="border border-2 border-info text-center bg-light text-danger"><%= data.state%></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">peen</th>
+            <td class="border border-2 border-info text-center bg-light text-danger"><%= data.peen%></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">klass</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">(R)<%= data.klass%></td>
+          </tr>
+          <tr>
+            <th class="row text-light border-info border border-2 bg-secondary">Reg. No.</th>
+            <td class="border border-2 border-info text-center bg-light text-danger">A/23/<%= data.id%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-4">
+        <tbody>
+          <tr>
+            <th><%=data.name%></th>
+          </tr>
+          <tr>
+            <td>
+              <img src="/assets/pass/pass1.jpg" width="250px">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</section>
+  <%= link_to "edit",edit_admission_path(data),class: "btn btn-lg btn-outline-success m-3"%>
+  <%= button_to "delete",admission_path(data),method: :delete,turbo_confirm: "Are you sure?",class: "btn btn-lg btn-outline-danger m-1"%>
+</div>
+</div>
+</div>
+<%end%>
+
+
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
@@ -69,6 +119,9 @@
       </div><div>
         <%= f.label "email",class: "m-2"%>
         <%= f.text_field "email",class: "form-control form-control-lg"%>
+      </div><div>
+        <%= f.label "number",class: "m-2"%>
+        <%= f.text_field "number",class: "form-control form-control-lg"%>
       </div><div>
         <%= f.label "class",class: "m-2"%>
         <%= f.text_field "klass",class: "form-control form-control-lg"%>

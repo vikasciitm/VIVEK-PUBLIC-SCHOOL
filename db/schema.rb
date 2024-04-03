@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_29_065241) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_02_145801) do
   create_table "admissions", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_065241) do
     t.string "klass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "number"
   end
 
   create_table "secondearies", force: :cascade do |t|
