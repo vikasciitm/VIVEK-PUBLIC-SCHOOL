@@ -40,7 +40,7 @@ class SecondeariesController < ApplicationController
 
 	private
 	def all_params
-		{first_name: params[:secondeary][:first_name],last_name: params[:secondeary][:last_name],email: params[:secondeary][:email],number: params[:secondeary][:number],dob: params[:secondeary][:dob],add: params[:secondeary][:add]}
+		{image: params[:secondeary][:image],first_name: params[:secondeary][:first_name],last_name: params[:secondeary][:last_name],email: params[:secondeary][:email],number: params[:secondeary][:number],dob: params[:secondeary][:dob],add: params[:secondeary][:add]}
 	end
 
 	def set_secondeary

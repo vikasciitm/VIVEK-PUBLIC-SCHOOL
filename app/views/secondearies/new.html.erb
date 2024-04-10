@@ -45,13 +45,22 @@
 			<% end%>
 		</div>
 	</div>
-	<div class="col-lg-10 m-3">
+	<div class="d-flex">
+		<div class="col-lg-4 m-3">
 			<%= f.label "Address",class: "mb-2"%>
 			<%= f.text_field "add",class: "form-control form-control-lg"%>
 			<% @secondeary.errors.full_messages_for(:add).each do |message|%>
 				<p class="text-danger"><%= message%></p>
 			<% end%>
 		</div>
+		<div class="col-lg-4 m-3">
+			<%= f.label "image",class: "mb-2"%>
+			<%= f.file_field "image",class: "form-control form-control-lg"%>
+			<% @secondeary.errors.full_messages_for(:image).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+			<% end%>
+		</div>
+	</div>
 	<%= f.submit class: "btn btn-lg btn-primary m-3"%>
 	<%= link_to "Back to Students","/secondearies", class: "btn btn-lg btn-outline-primary m-3"%>
 	<% end%>

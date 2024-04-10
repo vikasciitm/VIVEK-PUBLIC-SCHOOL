@@ -31,7 +31,7 @@
             <li><a class="dropdown-item" href="/secondearies/<%=s.id%>">View</a></li>
             <li><a class="dropdown-item" href="/secondearies/<%=s.id%>/edit">Edit</a></li>
             <li><%= button_to "Delete",secondeary_path(s),class: "dropdown-item",method: :delete, data: {confirm: "Are you sure to delete this employee?"}%></li>
-            <li><%#= link_to "Destroy", secondeary_path(s), data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></li>
+            <li><%#= link_to "Destroy", secondeary_path(s), method: :delete, data: {confirm: "Are you sure?"} %></li>
           </ul>
         </div>
       </td>

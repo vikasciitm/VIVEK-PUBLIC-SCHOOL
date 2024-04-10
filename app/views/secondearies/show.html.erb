@@ -69,12 +69,12 @@
 					</tr>
 					<tr>
 						<td>
-							<img src="/assets/pass/pass1.jpg" width="200px">
+							<%= image_tag @secondeary.image, class: "rounded mx-auto d-block ",width: "200px" %>
 						</td>
 					</tr>
 					<tr>
 						<th class="row text-light border-info border border-2 bg-secondary">Address</th>
-						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.dob%></td>
+						<td class="border border-2 border-info text-center bg-light text-danger"><%= @secondeary.add%></td>
 					</tr>
 				</tbody>
 			</table>

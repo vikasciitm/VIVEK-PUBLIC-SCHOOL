@@ -38,6 +38,7 @@ class AdmissionsController < ApplicationController
 
 	private
 	def all_prams
-		{first_name: params[:admission][:first_name],last_name: params[:admission][:last_name],email: params[:admission][:email],number: params[:admission][:number],klass: params[:admission][:klass],address: params[:admission][:address],address2: params[:admission][:address2],city: params[:admission][:city],state: params[:admission][:state],peen: params[:admission][:peen]}
+		params.require(:admission).permit(:first_name,:last_name,:email,:number,:klass,:address,:address2,:city,:state,:peen,:image)
+		# {first_name: params[:admission][:first_name],last_name: params[:admission][:last_name],email: params[:admission][:email],number: params[:admission][:number],klass: params[:admission][:klass],address: params[:admission][:address],address2: params[:admission][:address2],city: params[:admission][:city],state: params[:admission][:state],peen: params[:admission][:peen],image: params[:admission][:image]}
 	end
 end

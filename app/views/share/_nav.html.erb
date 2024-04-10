@@ -26,8 +26,15 @@
           <a class="nav-link" href="/pages/about_us">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pages/contact_us">Contact Us</a>
+          <a class="nav-link" href="/contacts/new">Contact Us</a>
         </li>
+        <%# if user_signed_in?%>
+          <%# if 7==current_user.id%>
+         <%#  <li class="nav-item">
+            <a class="nav-link" href="/contacts">ContactData</a>
+          </li> %>
+          <%#end%>
+        <%#end%>
         <% if user_signed_in?%>
         <li class="nav-item">
           <a class="nav-link" href="/admissions">Admission</a>
@@ -41,6 +48,10 @@
       </ul>
       <% if user_signed_in?%>
         <%= button_to "Sign Out",destroy_user_session_path, method: :delete,class: "btn btn-outline-light m-1 ",data: { confirm: "If you log out"}%>
+
+          <% if 7==current_user.id%>
+            <a class="btn btn-outline-dark m-1" href="/contacts">MIS</a>
+          <%end%>
       <%else%>
         <%= link_to "Sign Up",new_user_registration_path ,class: "btn btn-outline-light m-1"%>
         <%= link_to "Log In",new_user_session_path,class: "btn btn-outline-light m-1"%>

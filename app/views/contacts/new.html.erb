@@ -1,0 +1,103 @@
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .chat-container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .chat-header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        overflow-y: scroll;
+        max-height: 300px;
+    }
+
+    .message {
+        margin-bottom: 10px;
+    }
+
+    .message .sender {
+        font-weight: bold;
+    }
+
+    .message .message-content {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 8px 10px;
+        display: inline-block;
+    }
+
+    .chat-input {
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #ddd;
+    }
+
+    .chat-input input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .chat-input input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+</style>
+<div class="chat-container">
+    <div class="chat-header">
+        Contact Box
+    </div>
+    
+    <div class="chat-input m-4">
+        <%= form_with model: @contact do |f|%>
+            <%#= f.label "full_name",class: "form-label"%>
+            <%= f.text_field "full_name",class: "form-control form-control-lg m-3",placeholder: "Name"%>
+            <% @contact.errors.full_messages_for(:full_name).each do |message|%>
+                <p class="text-danger"><%= message%></p>
+            <% end%>
+            <%#= f.label "email",class: "form-label"%>
+            <%= f.text_field "email",class: "form-control form-control-lg m-3",placeholder: "email"%>
+            <% @contact.errors.full_messages_for(:email).each do |message|%>
+                <p class="text-danger"><%= message%></p>
+            <% end%>
+            <%#= f.label "number",class: "form-label"%>
+            <%= f.number_field "number",class: "form-control form-control-lg p-1",placeholder: "mobile number"%>
+            <% @contact.errors.full_messages_for(:number).each do |message|%>
+                <p class="text-danger"><%= message%></p>
+            <% end%>
+            <%#= f.label "message",class: "form-label"%>
+            <%= f.text_field "message",class: "form-control form-control-lg m-3",placeholder: "message"%>
+            <% @contact.errors.full_messages_for(:message).each do |message|%>
+                <p class="text-danger"><%= message%></p>
+            <% end%>
+            <%= f.submit class: "m-4"%>
+        <%end%>
+    </div>
+</div>
+
+
